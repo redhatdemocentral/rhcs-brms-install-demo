@@ -1,0 +1,41 @@
+apiVersion: v1
+clusters:
+- cluster:
+    insecure-skip-tls-verify: true
+    server: https://10.1.2.2:8443
+  name: 10-1-2-2:8443
+- cluster:
+    insecure-skip-tls-verify: true
+    server: https://10.1.2.2:8443
+  name: 10.1.2.2:8443
+contexts:
+- context:
+    cluster: 10-1-2-2:8443
+    namespace: bpms-install-demo
+    user: admin/10-1-2-2:8443
+  name: bpms-install-demo/10-1-2-2:8443/admin
+- context:
+    cluster: 10-1-2-2:8443
+    namespace: default
+    user: admin/10-1-2-2:8443
+  name: default/10-1-2-2:8443/admin
+- context:
+    cluster: 10.1.2.2:8443
+    namespace: default
+    user: admin/10.1.2.2:8443
+  name: default/10.1.2.2:8443/admin
+- context:
+    cluster: 10.1.2.2:8443
+    namespace: turbo
+    user: admin/10.1.2.2.:8443
+  name: turbo/10.1.2.2:8443/admin
+current-context: bpms-install-demo/10-1-2-2:8443/admin
+kind: Config
+preferences: {}
+users:
+- name: admin/10-1-2-2:8443
+  user:
+    token: YlT9jEauUPgHO13akEMZD1LyncXF2vnCVJAE-H7uh6M
+- name: admin/10.1.2.2:8443
+  user:
+    token: E3I1bnPFS7RM6ssy5P76nnmy9S1mB4FEj7e-MrvWDdY
