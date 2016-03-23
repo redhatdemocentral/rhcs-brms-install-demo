@@ -38,8 +38,7 @@ Install on Red Hat CDK OpenShift Enterprise image
     # setup our new build.
     $ oc new-build jbossdemocentral/developer:jdk8-uid --name=rhcs-brms-install-demo --binary=true
 
-    # start a build, run from root of rhcs-brms-install-demo project, this takes some time to upload all of the product sources for
-build.
+    # start a build, run from root of project, this takes some time to upload all of the product sources for build.
     $ oc start-build rhcs-brms-install-demo --from-dir=.
 
     # watch the build by running the following repeatedly until builds completes.
