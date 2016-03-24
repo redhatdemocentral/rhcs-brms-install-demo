@@ -24,7 +24,7 @@ Install on Red Hat CDK OpenShift Enterprise image
 
 Tip & Trick
 -----------
-This is a good way to look at what is being created during all the 'oc' commands above:
+This is a good way to look at what is being created during the installation:
 
     ```
     $ oc get all
