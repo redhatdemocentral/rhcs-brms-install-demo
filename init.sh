@@ -50,11 +50,22 @@ oc new-project rhcs-brms-install-demo
 echo
 echo "Setting up a new build..."
 echo
-oc new-build "jbossdemocentral/developer:jdk8-uid" --name=rhcs-brms-install-demo --binary=true
+oc new-build "jbossdemocentral/developer" --name=rhcs-brms-install-demo --binary=true
 
 if [ $? -ne 0 ]; then
 	echo
 	echo Error occurred during 'oc new-build' command!
+	exit
+fi
+
+echo
+echo "Importing developer image..."
+echo
+oc import-image developer
+
+if [ $? -ne 0 ]; then
+	echo
+	echo Error occurred during 'oc import-image' command!
 	exit
 fi
 
@@ -66,7 +77,7 @@ oc start-build rhcs-brms-install-demo --from-dir=.
 if [ $? -ne 0 ]; then
 	echo
 	echo Error occurred during 'oc start-build' command!
-  oc start-build rhcs-brms-install-demo --from-dir=.
+	exit
 fi
 
 echo
