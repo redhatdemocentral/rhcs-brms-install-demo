@@ -1,137 +1,101 @@
 #!/bin/sh 
-DEMO="Install Demo"
+DEMO="Cloud JBoss BRMS Install Demo"
 AUTHORS="Andrew Block, Eric D. Schabell"
-PROJECT="git@github.com:jbossdemocentral/brms-install-demo.git"
-PRODUCT="JBoss BRMS"
-JBOSS_HOME=./target/jboss-eap-6.4
-SERVER_DIR=$JBOSS_HOME/standalone/deployments/
-SERVER_CONF=$JBOSS_HOME/standalone/configuration/
-SERVER_BIN=$JBOSS_HOME/bin
-SRC_DIR=./installs
-SUPPORT_DIR=./support
-PRJ_DIR=./projects
-BRMS=jboss-brms-installer-6.2.0.BZ-1299002.jar
-EAP=jboss-eap-6.4.0-installer.jar
-EAP_PATCH=jboss-eap-6.4.4-patch.zip
-VERSION=6.2
+PROJECT="git@github.com:eschabell/rhcs-brms-install-demo.git"
 
 # wipe screen.
 clear 
 
 echo
-echo "#################################################################"
-echo "##                                                             ##"   
-echo "##  Setting up the ${DEMO}                                ##"
-echo "##                                                             ##"   
-echo "##                                                             ##"   
-echo "##     ####  ####   #   #   ###    #####                       ##"
-echo "##     #   # #   # # # # # #       #                           ##"
-echo "##     ####  ####  #  #  #  ##     #####                       ##"
-echo "##     #   # # #   #     #    #    #   #                       ##"
-echo "##     ####  #  #  #     # ###     #####                       ##"
-echo "##                                                             ##"   
-echo "##                                                             ##"   
-echo "##  brought to you by,                                         ##"   
-echo "##             ${AUTHORS}                  ##"
-echo "##                                                             ##"   
-echo "##  ${PROJECT}      ##"
-echo "##                                                             ##"   
-echo "#################################################################"
+echo "##########################################################"
+echo "##                                                      ##"   
+echo "##  Setting up the ${DEMO}        ##"
+echo "##                                                      ##"   
+echo "##                                                      ##"   
+echo "##     ####  ####  #   #  ####        ###   #### #####  ##"
+echo "##     #   # #   # ## ## #       #   #   # #     #      ##"
+echo "##     ####  ####  # # #  ###   ###  #   #  ###  ###    ##"
+echo "##     #   # # #   #   #     #   #   #   #     # #      ##"
+echo "##     ####  #  #  #   # ####         ###  ####  #####  ##"
+echo "##                                                      ##"   
+echo "##  brought to you by,                                  ##"   
+echo "##             ${AUTHORS}           ##"
+echo "##                                                      ##"   
+echo "##  ${PROJECT} ##"
+echo "##                                                      ##"   
+echo "##########################################################"
 echo
 
 # make some checks first before proceeding.	
-if [ -r $SRC_DIR/$EAP ] || [ -L $SRC_DIR/$EAP ]; then
-	echo Product sources are present...
-	echo
-else
-	echo Need to download $EAP package from the Customer Portal 
-	echo and place it in the $SRC_DIR directory to proceed...
-	echo
-	exit
-fi
+command -v oc -v >/dev/null 2>&1 || { echo >&2 "OpenShift command line tooling is required but not installed yet... download here:
+https://developers.openshift.com/managing-your-applications/client-tools.html"; exit 1; }
 
-if [ -r $SRC_DIR/$EAP_PATCH ] || [ -L $SRC_DIR/$EAP_PATCH ]; then
-	echo Product patches are present...
-	echo
-else
-	echo Need to download $EAP_PATCH package from the Customer Portal 
-	echo and place it in the $SRC_DIR directory to proceed...
-	echo
-	exit
-fi
-
-if [ -r $SRC_DIR/$BRMS ] || [ -L $SRC_DIR/$BRMS ]; then
-		echo Product sources are present...
-		echo
-else
-		echo Need to download $BRMS installer from the Customer Portal 
-		echo and place it in the $SRC_DIR directory to proceed...
-		echo
-		exit
-fi
-
-# Remove the old JBoss instance, if it exists.
-if [ -x $JBOSS_HOME ]; then
-	echo "  - removing existing JBoss product..."
-	echo
-	rm -rf $JBOSS_HOME
-fi
-
-# Run installers.
-echo "JBoss EAP installer running now..."
+echo "OpenShift commandline tooling is installed..."
+echo 
+echo "Loging into OSE..."
 echo
-java -jar $SRC_DIR/$EAP $SUPPORT_DIR/installation-eap -variablefile $SUPPORT_DIR/installation-eap.variables
+oc login 10.1.2.2:8443 --password=admin --username=admin
 
 if [ $? -ne 0 ]; then
 	echo
-	echo Error occurred during JBoss EAP installation!
+	echo Error occurred during 'oc login' command!
 	exit
 fi
 
 echo
-echo "Applying JBoss EAP 6.4.4 patch now..."
+echo "Creating a new project..."
 echo
-$JBOSS_HOME/bin/jboss-cli.sh --command="patch apply $SRC_DIR/$EAP_PATCH"
+oc new-project rhcs-brms-install-demo 
+
+echo
+echo "Setting up a new build..."
+echo
+oc new-build "jbossdemocentral/developer:jdk8-uid" --name=rhcs-brms-install-demo --binary=true
 
 if [ $? -ne 0 ]; then
 	echo
-	echo Error occurred during JBoss EAP patching!
+	echo Error occurred during 'oc new-build' command!
 	exit
 fi
-			
+
 echo
-echo "JBoss BRMS installer running now..."
+echo "Starting a build, this takes some time to upload all of the product sources for build..."
 echo
-java -jar $SRC_DIR/$BRMS $SUPPORT_DIR/installation-brms -variablefile $SUPPORT_DIR/installation-brms.variables
+oc start-build rhcs-brms-install-demo --from-dir=.
 
 if [ $? -ne 0 ]; then
-	echo Error occurred during $PRODUCT installation
-	exit
+	echo
+	echo Error occurred during 'oc start-build' command!
+  oc start-build rhcs-brms-install-demo --from-dir=.
 fi
 
 echo
-echo "  - enabling demo accounts role setup in application-roles.properties file..."
+echo "Watch the build by running the following repeatedly until builds completes:"
 echo
-cp $SUPPORT_DIR/application-roles.properties $SERVER_CONF
-
-echo "  - setting up standalone.xml configuration adjustments..."
+echo "    $ oc logs rhcs-brms-install-demo-1-build"
 echo
-cp $SUPPORT_DIR/standalone.xml $SERVER_CONF
-
-echo "  - setup email notification users..."
 echo
-cp $SUPPORT_DIR/userinfo.properties $SERVER_DIR/business-central.war/WEB-INF/classes/
-
-# Add execute permissions to the standalone.sh script.
-echo "  - making sure standalone.sh for server is executable..."
-echo
-chmod u+x $JBOSS_HOME/bin/standalone.sh
-
-echo "You can now start the $PRODUCT with $SERVER_BIN/standalone.sh"
-echo
-echo "Login to http://localhost:8080/business-central   (u:erics / p:jbossbrms1!)"
-echo
-
-echo "$PRODUCT $VERSION $DEMO Setup Complete."
-echo
+echo "===================================================================="
+echo "=                                                                  ="
+echo "=  When build finishes you need to run a few more commands to      ="
+echo "=  complete the application deployment onto OpenShift Enterprise:  ="
+echo "=                                                                  ="
+echo "=  1. Create a new application:                                    ="
+echo "=                                                                  ="
+echo "=         $ oc new-app rhcs-brms-install-demo                      ="
+echo "=                                                                  ="
+echo "=                                                                  ="
+echo "=  2. Expose the application as a service:                         ="
+echo "=                                                                  ="
+echo "=         $ oc expose service rhcs-brms-install-demo  \            ="
+echo "= 	           --hostname=rhcs-brms-install-demo.10.1.2.2.xip.io   ="
+echo "=                                                                  ="
+echo "=                                                                  ="
+echo "=  Login to JBoss BRMS to start developing rules projects:         ="
+echo "=                                                                  ="
+echo "=  http://rhcs-brms-install-demo.10.1.2.2.xip.io/business-central  ="
+echo "=                                                                  ="
+echo "=  [ u:erics / p:jbossbrms1! ]                                      ="
+echo "=                                                                  ="
+echo "===================================================================="
 

@@ -8,50 +8,15 @@ Install on Red Hat CDK OpenShift Enterprise image
 -------------------------------------------------
 1. First complete the installation and start the OpenShift image supplied in the [cdk-install-demo](https://github.com/eschabell/cdk-install-demo).
 
-2. [Download and unzip this demo.](https://github.com/eschabell/rhcs-brms-install-demo/archive/master.zip)
+2. Install [OpenShift Cient Tools](https://developers.openshift.com/managing-your-applications/client-tools.html) if you have not done so previously.
 
-3. Add products to installs directory.
+3. [Download and unzip this demo.](https://github.com/eschabell/rhcs-brms-install-demo/archive/master.zip)
 
-4. To access CDK OSE installation, make sure your ~/.kube/config provides access, see example in support/kube-config-example file.
+4. Add products to installs directory.
 
-5. Install [OpenShift Cient Tools](https://developers.openshift.com/managing-your-applications/client-tools.html) if you have not
-	 done so previously.
+5. Run 'init.sh' or 'init.bat' file. 'init.bat' must be run with Administrative privileges.
 
-6. Login to your CDK OpenShift instance:
-
-    ```
-    $ oc login
-
-    Authentication required for https://10.1.2.2:8443 (openshift)
-    Username: admin
-    Password: admin
-
-    Login successful.
-    ```
-
-7. Setup your new project with following commands:
-
-    ```
-    # create a new project.
-    $ oc new-project rhcs-brms-install-demo
-
-    # setup our new build.
-    $ oc new-build jbossdemocentral/developer:jdk8-uid --name=rhcs-brms-install-demo --binary=true
-
-    # start a build, run from root of project, this takes some time to upload all of the product sources for build.
-    $ oc start-build rhcs-brms-install-demo --from-dir=.
-
-    # watch the build by running the following repeatedly until builds completes.
-    $ oc logs rhcs-brms-install-demo-1-build
-
-    # create a new application.
-    $ oc new-app rhcs-brms-install-demo
-
-    # expose business-central application.
-    $ oc expose service rhcs-brms-install-demo --hostname=rhcs-brms-install-demo.10.1.2.2.xip.io
-    ```
-
-8. Login to JBoss BPM Suite to start developing your BPM projects:
+6. Login to JBoss BRMS to start developing rules projects:
 
     [http://rhcs-brms-install-demo.10.1.2.2.xip.io/business-central](http://rhcs-brms-install-demo.10.1.2.2.xip.io/business-central)
     ( u:erics / p:jbossbrms1! )
