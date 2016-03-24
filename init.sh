@@ -72,7 +72,7 @@ fi
 echo
 echo "Starting a build, this takes some time to upload all of the product sources for build..."
 echo
-oc start-build rhcs-brms-install-demo --from-dir=.
+oc start-build rhcs-brms-install-demo --from-dir=. --follow=true
 
 if [ $? -ne 0 ]; then
 	echo
@@ -81,26 +81,29 @@ if [ $? -ne 0 ]; then
 fi
 
 echo
-echo "Watch the build by running the following repeatedly until builds completes:"
+echo "Creating a new application..."
 echo
-echo "    $ oc logs rhcs-brms-install-demo-1-build"
+oc new-app rhcs-brms-install-demo
+
+if [ $? -ne 0 ]; then
+	echo
+	echo Error occurred during 'oc new-app' command!
+	exit
+fi
+
 echo
+echo "Creating an externally facing route by exposing a service..."
+echo
+oc expose service rhcs-brms-install-demo --hostname=rhcs-brms-install-demo.10.1.2.2.xip.io
+
+if [ $? -ne 0 ]; then
+	echo
+	echo Error occurred during 'oc expose service' command!
+	exit
+fi
+
 echo
 echo "===================================================================="
-echo "=                                                                  ="
-echo "=  When build finishes you need to run a few more commands to      ="
-echo "=  complete the application deployment onto OpenShift Enterprise:  ="
-echo "=                                                                  ="
-echo "=  1. Create a new application:                                    ="
-echo "=                                                                  ="
-echo "=         $ oc new-app rhcs-brms-install-demo                      ="
-echo "=                                                                  ="
-echo "=                                                                  ="
-echo "=  2. Expose the application as a service:                         ="
-echo "=                                                                  ="
-echo "=         $ oc expose service rhcs-brms-install-demo  \            ="
-echo "= 	           --hostname=rhcs-brms-install-demo.10.1.2.2.xip.io   ="
-echo "=                                                                  ="
 echo "=                                                                  ="
 echo "=  Login to JBoss BRMS to start developing rules projects:         ="
 echo "=                                                                  ="
