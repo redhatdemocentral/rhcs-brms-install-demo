@@ -45,7 +45,7 @@ This is a good way to look at what is being created during the installation:
 
 Supporting Articles
 -------------------
-comming soon...
+[Real App Dev in the Cloud with JBoss BRMS Install Demo](http://www.schabell.org/2016/03/real-appdev-in-cloud-jboss-brms-install-demo.html)
 
 
 Released versions
