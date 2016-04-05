@@ -1,30 +1,31 @@
 #!/bin/sh 
 DEMO="Cloud JBoss BRMS Install Demo"
 AUTHORS="Andrew Block, Eric D. Schabell"
-PROJECT="git@github.com:eschabell/rhcs-brms-install-demo.git"
+PROJECT="git@github.com:redhatdemocentral/rhcs-brms-install-demo.git"
 
 # wipe screen.
 clear 
 
 echo
-echo "##########################################################"
-echo "##                                                      ##"   
-echo "##  Setting up the ${DEMO}        ##"
-echo "##                                                      ##"   
-echo "##                                                      ##"   
-echo "##     ####  ####  #   #  ####        ###   #### #####  ##"
-echo "##     #   # #   # ## ## #       #   #   # #     #      ##"
-echo "##     ####  ####  # # #  ###   ###  #   #  ###  ###    ##"
-echo "##     #   # # #   #   #     #   #   #   #     # #      ##"
-echo "##     ####  #  #  #   # ####         ###  ####  #####  ##"
-echo "##                                                      ##"   
-echo "##  brought to you by,                                  ##"   
-echo "##             ${AUTHORS}           ##"
-echo "##                                                      ##"   
-echo "##  ${PROJECT} ##"
-echo "##                                                      ##"   
-echo "##########################################################"
+echo "###################################################################"
+echo "##                                                               ##"   
+echo "##  Setting up the ${DEMO}                 ##"
+echo "##                                                               ##"   
+echo "##                                                               ##"   
+echo "##     ####  ####  #   #  ####        ###   #### #####           ##"
+echo "##     #   # #   # ## ## #       #   #   # #     #               ##"
+echo "##     ####  ####  # # #  ###   ###  #   #  ###  ###             ##"
+echo "##     #   # # #   #   #     #   #   #   #     # #               ##"
+echo "##     ####  #  #  #   # ####         ###  ####  #####           ##"
+echo "##                                                               ##"   
+echo "##  brought to you by,                                           ##"   
+echo "##             ${AUTHORS}                    ##"
+echo "##                                                               ##"   
+echo "##  ${PROJECT}  ##"
+echo "##                                                               ##"   
+echo "###################################################################"
 echo
+exit
 
 # make some checks first before proceeding.	
 command -v oc -v >/dev/null 2>&1 || { echo >&2 "OpenShift command line tooling is required but not installed yet... download here:
