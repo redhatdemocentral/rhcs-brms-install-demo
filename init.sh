@@ -25,7 +25,6 @@ echo "##  ${PROJECT}  ##"
 echo "##                                                               ##"   
 echo "###################################################################"
 echo
-exit
 
 # make some checks first before proceeding.	
 command -v oc -v >/dev/null 2>&1 || { echo >&2 "OpenShift command line tooling is required but not installed yet... download here:
