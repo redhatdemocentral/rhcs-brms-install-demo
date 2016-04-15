@@ -87,6 +87,11 @@ if not "%ERRORLEVEL%" == "0" (
 )
 
 echo.
+echo Creating a new project...
+echo.
+call oc new-project rhcs-brms-install-demo
+
+echo.
 echo Setting up a new build...
 echo.
 call oc new-build "jbossdemocentral/developer" --name=rhcs-brms-install-demo --binary=true
