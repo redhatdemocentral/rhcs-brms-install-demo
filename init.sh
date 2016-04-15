@@ -2,7 +2,7 @@
 DEMO="Cloud JBoss BRMS Install Demo"
 AUTHORS="Andrew Block, Eric D. Schabell"
 PROJECT="git@github.com:redhatdemocentral/rhcs-brms-install-demo.git"
-RC_DIR=./installs
+SRC_DIR=./installs
 BRMS=jboss-brms-installer-6.2.0.BZ-1299002.jar
 EAP=jboss-eap-6.4.0-installer.jar
 EAP_PATCH=jboss-eap-6.4.4-patch.zip
