@@ -22,25 +22,17 @@ Install on Red Hat CDK OpenShift Enterprise image
     ( u:erics / p:jbossbrms1! )
 
 
-Tip & Trick
------------
-This is a good way to look at what is being created during the installation:
+Notes
+-----
+Should your local network DNS not handle the resolution of the above address, giving you page not found errors, you can apply the
+following to your local hosts file:
 
     ```
-    $ oc get all
+    $ sudo vi /etc/hosts
 
-    NAME                        TYPE                                           FROM       LATEST
-    rhcs-brms-install-demo      Docker                                         Binary     1
+    # add host for CDK demo resolution.
+    10.1.2.2   rhcs-brms-install-demo.10.1.2.2.xip.io    rhcs-brms-install-demo.10.1.2.2.xip.io
 
-    NAME                        TYPE                                           FROM             STATUS     STARTED         DURATION
-    rhcs-brms-install-demo-1    Docker                                         Binary@56ed14a   Running    2 minutes ago   2m11s
-    
-    NAME                        DOCKER REPO                                    TAGS                  UPDATED
-    developer                   jbossdemocentral/developer                     1.0,jdk8-uid,latest   10 minutes ago
-    rhcs-brms-install-demo      172.30.211.34:5000/rhcs-brms-install-demo/rhcs-brms-install-demo                         
-
-    NAME                             READY                                     STATUS     RESTARTS   AGE
-    rhcs-brms-install-demo-1-build   1/1                                       Running    0          2m
 
 
 Supporting Articles
