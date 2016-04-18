@@ -32,7 +32,7 @@ following to your local hosts file:
 
     # add host for CDK demo resolution.
     10.1.2.2   rhcs-brms-install-demo.10.1.2.2.xip.io    rhcs-brms-install-demo.10.1.2.2.xip.io
-
+    ```
 
 
 Supporting Articles
