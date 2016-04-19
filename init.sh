@@ -31,7 +31,7 @@ echo "###################################################################"
 echo
 
 # make some checks first before proceeding.	
-command -v oc -v >/dev/null 2>&1 || { echo >&2 "OpenShift command line tooling is required but not installed yet... download here: https://developers.openshift.com/managing-your-applications/client-tools.html"; exit 1; }
+command -v oc -v >/dev/null 2>&1 || { echo >&2 "OpenShift command line tooling is required but not installed yet... download here: https://access.redhat.com/downloads/content/290"; exit 1; }
 
 # make some checks first before proceeding.	
 if [ -r $SRC_DIR/$EAP ] || [ -L $SRC_DIR/$EAP ]; then
