@@ -27,12 +27,12 @@ Notes
 Should your local network DNS not handle the resolution of the above address, giving you page not found errors, you can apply the
 following to your local hosts file:
 
-    ```
-    $ sudo vi /etc/hosts
+```
+$ sudo vi /etc/hosts
 
-    # add host for CDK demo resolution.
-    10.1.2.2   rhcs-brms-install-demo.10.1.2.2.xip.io    rhcs-brms-install-demo.10.1.2.2.xip.io
-    ```
+# add host for CDK demo resolution.
+10.1.2.2   rhcs-brms-install-demo.10.1.2.2.xip.io    rhcs-brms-install-demo.10.1.2.2.xip.io
+```
 
 
 Supporting Articles
