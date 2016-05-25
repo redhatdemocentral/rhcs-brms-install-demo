@@ -1,5 +1,5 @@
 id: rhcs-brms-install
-title: Red Hat Cloud Suite - JBoss BRMS Install Demo
+title: Cloud JBoss BRMS Install Demo
 github_repo_url: https://github.com/redhatdemocentral/rhcs-brms-install-demo
 technologies:
   - Red Hat CDK
