@@ -44,6 +44,8 @@ Released versions
 -----------------
 See the tagged releases for the following versions of the product:
 
+- v1.1 - JBoss BRMS 6.2.0.GA-redhat-1-bz-1334704 and JBoss EAP 6.4.4 running on Red Hat CDK 2.1.
+
 - v1.0 - JBoss BRMS 6.2.0-BZ-1299002, JBoss EAP 6.4.4 and running on Red Hat CDK using OpenShift Enterprise image. 
 
 ![OSE pod](https://github.com/redhatdemocentral/rhcs-brms-install-demo/blob/master/docs/demo-images/rhcs-brms-pod.png?raw=true)
