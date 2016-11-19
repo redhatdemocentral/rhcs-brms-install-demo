@@ -106,7 +106,7 @@ if not "%ERRORLEVEL%" == "0" (
 )
 
 REM need to wait a bit for new build to finish with developer image.
-timeout 3 /nobreak
+timeout 10 /nobreak
 
 echo.
 echo Importing developer image...
