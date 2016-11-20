@@ -96,7 +96,7 @@ if [ $? -ne 0 ]; then
 fi
 
 # need to wait a bit for new build to finish with developer image.
-sleep 3  
+sleep 10   
 
 echo
 echo "Importing developer image..."
