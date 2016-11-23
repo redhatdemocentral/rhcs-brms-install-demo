@@ -44,6 +44,8 @@ This project can be installed on any OpenShift platform, such as OpenShift Conta
   $ ./init.sh IP"
 ```
 
+If for any reason the installation breaks or you want a new JBoss BRMS installation, just remove the project rhcs-brms-install-demo entry in the OpenShift console and re-run the installation.
+
 Should your local network DNS not handle the resolution of the above address, giving you page not found errors, you can apply the following to your local hosts file:
 
 ```
