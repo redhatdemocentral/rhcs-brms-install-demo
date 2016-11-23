@@ -78,8 +78,8 @@ See the tagged releases for the following versions of the product:
 
 ![OCP console](https://github.com/redhatdemocentral/rhcs-brms-install-demo/blob/master/docs/demo-images/rhcs-brms-ocp-console.png?raw=true)
 
-![JBoss BRMS OCP](https://github.com/redhatdemocentral/rhcs-brms-install-demo/blob/master/docs/demo-images/jboss-brms-ocp.png?raw=true)
-
 ![OCP build](https://github.com/redhatdemocentral/rhcs-brms-install-demo/blob/master/docs/demo-images/rhcs-brms-build-ocp.png?raw=true)
 
 ![OCP pod](https://github.com/redhatdemocentral/rhcs-brms-install-demo/blob/master/docs/demo-images/rhcs-brms-pod-ocp.png?raw=true)
+
+![JBoss BRMS OCP](https://github.com/redhatdemocentral/rhcs-brms-install-demo/blob/master/docs/demo-images/jboss-brms-ocp.png?raw=true)
