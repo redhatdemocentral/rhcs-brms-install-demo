@@ -76,14 +76,9 @@ See the tagged releases for the following versions of the product:
 
 - v1.0 - JBoss BRMS 6.2.0-BZ-1299002, JBoss EAP 6.4.4 and running on Red Hat CDK using OpenShift Enterprise image. 
 
-![OCP pod ocp](https://github.com/redhatdemocentral/rhcs-brms-install-demo/blob/master/docs/demo-images/rhcs-brms-pod-ocp.png?raw=true)
+![OCP pod](https://github.com/redhatdemocentral/rhcs-brms-install-demo/blob/master/docs/demo-images/rhcs-brms-pod-ocp.png?raw=true)
 
-![OSE pod cdk](https://github.com/redhatdemocentral/rhcs-brms-install-demo/blob/master/docs/demo-images/rhcs-brms-pod-cdk.png?raw=true)
-
-![OCP build ocp](https://github.com/redhatdemocentral/rhcs-brms-install-demo/blob/master/docs/demo-images/rhcs-brms-build-ocp.png?raw=true)
-
-![OSE build cdk](https://github.com/redhatdemocentral/rhcs-brms-install-demo/blob/master/docs/demo-images/rhcs-brms-build-cdk.png?raw=true)
+![OCP build](https://github.com/redhatdemocentral/rhcs-brms-install-demo/blob/master/docs/demo-images/rhcs-brms-build-ocp.png?raw=true)
 
 ![JBoss BRMS OCP](https://github.com/redhatdemocentral/rhcs-brms-install-demo/blob/master/docs/demo-images/jboss-brms-ocp.png?raw=true)
 
-![JBoss BRMS CDK](https://github.com/redhatdemocentral/rhcs-brms-install-demo/blob/master/docs/demo-images/jboss-brms-cdk.png?raw=true)
