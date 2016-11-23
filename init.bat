@@ -72,7 +72,7 @@ if  %ERRORLEVEL% NEQ 0 (
 )
 
 if exist "%SRC_DIR%\%EAP%" (
-        echo Product sources are present...
+        echo Product EAP sources are present...
         echo.
 ) else (
         echo Need to download %EAP% package from the Customer Support Portal
@@ -82,7 +82,7 @@ if exist "%SRC_DIR%\%EAP%" (
 )
 
 if exist %SRC_DIR%\%EAP_PATCH% (
-        echo Product patches are present...
+        echo Product EAP patches are present...
         echo.
 ) else (
         echo Need to download %EAP_PATCH% package from the Customer Support Portal
@@ -92,7 +92,7 @@ if exist %SRC_DIR%\%EAP_PATCH% (
 )
 
 if exist "%SRC_DIR%\%BRMS%" (
-        echo Product sources are present...
+        echo Product BPM Suite sources are present...
         echo.
 ) else (
         echo Need to download %BRMS% package from the Customer Support Portal
@@ -214,14 +214,14 @@ GOTO :EOF
     endlocal & ( if not "%~2"=="" set "%~2=%_return%" ) & exit /b %_return%
 	
 :printDocs
-    echo This project can be installed on any OpenShift platform, such as the Red Hat
-    echo Container Development Kit (CDK) or OpenShift Container Platform (OCP). It is
-	echo possible to install it on any available installation, just point this installer
-	echo at your installation by passing an IP of your OpenShift installation:
-	echo.
-	echo    $ ./init.bat IP
-	echo.
-	echo If using Red Hat CDK, IP should look like: 10.1.2.2
-	echo. 
-	echo If using Red Hat OCP, IP should look like: 192.168.99.100
-	echo.
+  echo This project can be installed on any OpenShift platform, such as OpenShift
+  echo Container Platform or Red Hat Container Development Kit. It's possible to
+  echo install it on any available installation by pointing this installer to an
+  echo OpenShift IP address:
+  echo.
+  echo   $ ./init.sh IP
+  echo.
+  echo If using Red Hat OCP, IP should look like: 192.168.99.100
+  echo.
+  echo If using Red Hat CDK, IP should look like: 10.1.2.2
+  echo.
