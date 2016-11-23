@@ -25,6 +25,9 @@ Install JBoss BRMS on OpenShift
 
 4. Run 'init.sh' or 'init.bat' file. 'init.bat' must be run with Administrative privileges:
 ```
+   # The installation needs to be pointed to a running version
+   # of OpenShift, so pass an IP address such as:
+   #
    $ ./init.sh 192.168.99.100  # example for OCP.
 
    $ ./init.sh 10.1.2.2        # example for CDK.
