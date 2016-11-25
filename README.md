@@ -44,7 +44,7 @@ Notes
 -----
 This project can be installed on any OpenShift platform, such as OpenShift Container Platform or Red Hat Container Development Kit. It's possible to install it on any available installation by pointing this installer to an OpenShift IP address:
 ```
-  $ ./init.sh IP"
+  $ ./init.sh IP
 ```
 
 If for any reason the installation breaks or you want a new JBoss BRMS installation, just remove the project rhcs-brms-install-demo entry in the OpenShift console and re-run the installation.
