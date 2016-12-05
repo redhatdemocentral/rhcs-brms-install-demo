@@ -64,12 +64,16 @@ $ sudo vi /etc/hosts
 
 Supporting Articles
 -------------------
+- [App Dev in the Cloud: How To Run JBoss BRMS in a Container](http://www.schabell.org/2016/12/appdev-cloud-howto-run-jboss-brms-in-container.html)
+
 - [Real App Dev in the Cloud with JBoss BRMS Install Demo](http://www.schabell.org/2016/03/real-appdev-in-cloud-jboss-brms-install-demo.html)
 
 
 Released versions
 -----------------
 See the tagged releases for the following versions of the product:
+
+- v1.4 - JBoss BRMS 6.4.0 and JBoss EAP 7.0.0 running on any given OpenShift installation.
 
 - v1.3 - JBoss BRMS 6.3.0 and JBoss EAP 6.4.7 running on any given OpenShift installation.
 
