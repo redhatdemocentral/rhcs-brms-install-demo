@@ -30,7 +30,6 @@ RUN sed -i "s:<installpath>.*</installpath>:<installpath>$BRMS_HOME</installpath
 	  && java -jar /opt/jboss/$EAP_INSTALLER /opt/jboss/installation-eap -variablefile /opt/jboss/installation-eap.variables \
     && unzip -qo /opt/jboss/$BRMS_DEPLOYABLE  -d $BRMS_HOME/.. \
     && chown -R 1000:root $BRMS_HOME \
-    #&& chown -R 1001:root $BRMS_HOME \
     && /opt/jboss/fix-permissions $BRMS_HOME \
     && rm -rf /opt/jboss/$BRMS_DEPLOYABLE /opt/jboss/$EAP_INSTALLER /opt/jboss/installation-eap /opt/jboss/installation-eap.variables $BRMS_HOME/standalone/configuration/standalone_xml_history/
 
