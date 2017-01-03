@@ -64,6 +64,8 @@ $ sudo vi /etc/hosts
 
 Supporting Articles
 -------------------
+- [Holiday Homework - Red Hat Cloud demo updates](http://www.schabell.org/2016/12/holiday-homework-redhat-cloud-demo-updates.html)
+
 - [App Dev in the Cloud: How To Run JBoss BRMS in a Container](http://www.schabell.org/2016/12/appdev-cloud-howto-run-jboss-brms-in-container.html)
 
 - [Real App Dev in the Cloud with JBoss BRMS Install Demo](http://www.schabell.org/2016/03/real-appdev-in-cloud-jboss-brms-install-demo.html)
