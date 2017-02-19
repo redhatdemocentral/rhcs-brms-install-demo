@@ -87,10 +87,9 @@ elif [ $# -gt 1 ]; then
 	echo
 	exit
 else
-	# no arguments, prodeed with default host.
-	print_docs
-	echo
-	exit
+		echo "Proceeding with internal Red Hat Openshift Open PaaS.."
+		echo
+		HOST_IP="open.paas.redhat.com"
 fi
 
 # make some checks first before proceeding.	
@@ -119,10 +118,16 @@ fi
 
 echo "OpenShift commandline tooling is installed..."
 echo 
-echo "Logging in to OpenShift as $OPENSHIFT_USER..."
 echo
-oc login $HOST_IP:8443 --password=$OPENSHIFT_PWD --username=$OPENSHIFT_USER
-
+if [ $HOST_IP == "open.paas.redhat.com" ]; then
+	echo "Logging in to OpenShift Open PaaS with token..."
+	echo
+	oc login https://$HOST_IP --token=ZtWBWPRpbBo-m0sEkmG6VR46q_OK_e4LyafzNEQxszs
+else
+	echo "Logging in to OpenShift as $OPENSHIFT_USER..."
+	echo
+	oc login $HOST_IP:8443 --password=$OPENSHIFT_PWD --username=$OPENSHIFT_USER
+fi
 
 if [ $? -ne 0 ]; then
 	echo
@@ -133,7 +138,7 @@ fi
 echo
 echo "Creating a new project..."
 echo
-oc new-project rhcs-brms-install-demo 
+oc new-project app-dev-on-cloud-suite
 
 echo
 echo "Setting up a new build..."
@@ -197,15 +202,15 @@ if [ $? -ne 0 ]; then
 fi
 
 echo
-echo "===================================================================="
-echo "=                                                                  ="
-echo "=  Login to JBoss BRMS to start developing rules projects:         ="
-echo "=                                                                  ="
+echo "==========================================================================="
+echo "=                                                                         ="
+echo "=  Login to JBoss BRMS to start developing rules projects:                ="
+echo "=                                                                         ="
 echo "=  http://rhcs-brms-install-demo.$HOST_IP.xip.io/business-central  ="
-echo "=                                                                  ="
-echo "=  [ u:erics / p:jbossbrms1! ]                                     ="
-echo "=                                                                  ="
-echo "=  Note: it takes a few minutes to expose the service...           ="
-echo "=                                                                  ="
-echo "===================================================================="
+echo "=                                                                         ="
+echo "=  [ u:erics / p:jbossbrms1! ]                                            ="
+echo "=                                                                         ="
+echo "=  Note: it takes a few minutes to expose the service...                  ="
+echo "=                                                                         ="
+echo "==========================================================================="
 
