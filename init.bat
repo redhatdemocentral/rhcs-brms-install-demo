@@ -106,7 +106,7 @@ if not "%ERRORLEVEL%" == "0" (
 echo.
 echo Creating a new project...
 echo.
-call oc new-project rhcs-brms-install-demo
+call oc new-project app-dev-on-cloud-suite
 
 echo.
 echo Setting up a new build...
