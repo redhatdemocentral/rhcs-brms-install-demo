@@ -12,16 +12,13 @@ EAP=jboss-eap-7.0.0-installer.jar
 # prints the documentation for this script.
 function print_docs() 
 {
-	echo "This project can be installed on any OpenShift platform, such as OpenShift"
-	echo "Container Platform or Red Hat Container Development Kit. It's possible to"
-	echo "install it on any available installation by pointing this installer to an"
-	echo "OpenShift IP address:"
+	echo "This project can be installed on any OpenShift platform, such as OpenShift Container"
+	echo "Platform. It's possible to install it on any available installation by pointing this"
+	echo "installer to an OpenShift IP address:"
 	echo
 	echo "   $ ./init.sh IP"
 	echo
 	echo "If using Red Hat OCP, IP should look like: 192.168.99.100"
-	echo
-	echo "If using Red Hat CDK, IP should look like: 10.1.2.2"
 	echo
 }
 
