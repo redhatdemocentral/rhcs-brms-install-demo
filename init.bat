@@ -162,7 +162,7 @@ if not "%ERRORLEVEL%" == "0" (
 echo.
 echo Creating an externally facing route by exposing a service...
 echo.
-call oc expose service rhcs-brms-install-demo --hostname=rhcs-brms-install-demo.%HOST_IP%.xip.io
+call oc expose service rhcs-brms-install-demo --port=8080 --hostname=rhcs-brms-install-demo.%HOST_IP%.xip.io
 
 if not "%ERRORLEVEL%" == "0" (
   echo.

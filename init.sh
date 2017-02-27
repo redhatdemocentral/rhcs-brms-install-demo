@@ -190,7 +190,7 @@ fi
 echo
 echo "Creating an externally facing route by exposing a service..."
 echo
-oc expose service rhcs-brms-install-demo --hostname="rhcs-brms-install-demo.$HOST_IP.xip.io"
+oc expose service rhcs-brms-install-demo --port=8080 --hostname="rhcs-brms-install-demo.$HOST_IP.xip.io"
 
 if [ $? -ne 0 ]; then
 	echo
