@@ -8,7 +8,9 @@ set PROJECT=git@github.com:redhatdemocentral/rhcs-brms-install-demo.git
 set SRC_DIR=%PROJECT_HOME%installs
 set OPENSHIFT_USER=openshift-dev
 set OPENSHIFT_PWD=devel
-set HOST_IP=10.1.2.2
+set HOST_IP=192.168.99.100
+set OCP_PRJ=appdev-in-cloud
+set OCP_APP=rhcs-brms-install-demo
 set BRMS=jboss-brms-6.4.0.GA-deployable-eap7.x.zip
 set EAP=jboss-eap-7.0.0-installer.jar
 
@@ -106,12 +108,12 @@ if not "%ERRORLEVEL%" == "0" (
 echo.
 echo Creating a new project...
 echo.
-call oc new-project app-dev-on-cloud-suite
+call oc new-project %OCP_PRJ%
 
 echo.
 echo Setting up a new build...
 echo.
-call oc new-build "jbossdemocentral/developer" --name=rhcs-brms-install-demo --binary=true
+call oc new-build "jbossdemocentral/developer" --name=%OCP_APP% --binary=true
 
 if not "%ERRORLEVEL%" == "0" (
   echo.
@@ -138,7 +140,7 @@ if not "%ERRORLEVEL%" == "0" (
 echo.
 echo Starting a build, this takes some time to upload all of the product sources for build...
 echo.
-call oc start-build rhcs-brms-install-demo --from-dir=. --follow=true  --wait=true
+call oc start-build %OCP_APP% --from-dir=. --follow=true  --wait=true
 
 if not "%ERRORLEVEL%" == "0" (
   echo.
@@ -150,7 +152,7 @@ if not "%ERRORLEVEL%" == "0" (
 echo.
 echo Creating a new application...
 echo.
-call oc new-app rhcs-brms-install-demo
+call oc new-app %OCP_APP%
 
 if not "%ERRORLEVEL%" == "0" (
   echo.
@@ -162,7 +164,7 @@ if not "%ERRORLEVEL%" == "0" (
 echo.
 echo Creating an externally facing route by exposing a service...
 echo.
-call oc expose service rhcs-brms-install-demo --port=8080 --hostname=rhcs-brms-install-demo.%HOST_IP%.xip.io
+call oc expose service %OCP_APP% --port=8080 --hostname=%OCP_APP%.%HOST_IP%.xip.io
 
 if not "%ERRORLEVEL%" == "0" (
   echo.
@@ -176,7 +178,7 @@ echo ====================================================================
 echo =                                                                  =
 echo =  Login to JBoss BRMS to start developing rules projects:         =
 echo =                                                                  =
-echo =  http://rhcs-brms-install-demo.%HOST_IP%.xip.io/business-central =
+echo =  http://%OCP_APP%.%HOST_IP%.xip.io/business-central =
 echo =                                                                  =
 echo =  [ u:erics / p:jbossbrms1! ]                                     =
 echo =                                                                  =
