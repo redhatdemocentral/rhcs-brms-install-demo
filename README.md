@@ -31,6 +31,8 @@ Now log in to JBoss BRMS and start developing containerized rules projects (the 
 
   - OCP example: [http://rhcs-brms-install-demo.192.168.99.100.xip.io/business-central](http://rhcs-brms-install-demo.10.1.2.2.xip.io/business-central) ( u:erics / p:jbossbrms1! )
 
+5. Not sure how to get started with JBoss BRMS? Try one of these <a href="https://bpmworkshop.github.io/#/4" target="_blank">online workshops</a> to build a first project from scratch.
+
 
 Notes
 -----
@@ -91,6 +93,8 @@ Supporting Articles
 Released versions
 -----------------
 See the tagged releases for the following versions of the product:
+
+- v1.6 - JBoss BRMS 6.4.0 and JBoss EAP 7.0.0 running on any given OpenShift installation and loading mulitple projects.
 
 - v1.5 - JBoss BRMS 6.4.0 and JBoss EAP 7.0.0 running on any given OpenShift installation and port forwarding for git repo access configured.
 
