@@ -113,28 +113,16 @@ call oc new-project %OCP_PRJ%
 echo.
 echo Setting up a new build...
 echo.
+call oc delete bc %OCP_APP% -n %OCP_PRJ% >nul 2>&1
+call oc delete imagestreams developer >nul 2>&1
+call oc delete imagestreams %OCP_APP% >nul 2>&1
 call oc new-build "jbossdemocentral/developer" --name=%OCP_APP% --binary=true
 
 if not "%ERRORLEVEL%" == "0" (
 	echo.
 	echo Error occurred during 'oc new-build' command!
 	echo.
-	echo Cleaning out possible existing images and build configurations...
-	echo.
-	call oc delete bc %OCP_APP% -n %OCP_PRJ%
-	call oc delete imagestreams developer
-	call oc delete imagestreams %OCP_APP%
-	echo.
-	echo Setting up a new build, last try...
-	echo.
-  call oc new-build "jbossdemocentral/developer" --name=%OCP_APP% --binary=true
-
-  if not "%ERRORLEVEL%" == "0" (
-		echo.
-		echo Error occurred during 'oc new-build' command!
-		echo.
-	  GOTO :EOF
-	fi
+	GOTO :EOF
 fi
 
   echo.
