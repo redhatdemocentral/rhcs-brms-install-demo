@@ -1,9 +1,6 @@
 App Dev Cloud with JBoss BRMS Install Demo 
 ==========================================
-This demo is to install JBoss BRMS in the Cloud based on leveraging any Red Hat OpenShift container based platform, such as:
-
- - [Red Hat Container Platform (OCP)](https://github.com/redhatdemocentral/ocp-install-demo)
-  
+This demo is to install JBoss BRMS in the Cloud based on leveraging any Red Hat OpenShift Container Platform (OCP).
 It delivers a fully functioning containerized JBoss BRMS installation.
 
 
@@ -12,6 +9,8 @@ Install JBoss BRMS on OpenShift
 1. First ensure you have an OpenShift container based installation, such as one of the following installed first:
 
   - [OCP Install Demo](https://github.com/redhatdemocentral/ocp-install-demo)
+
+  - [Red Hat Container Development Kit (CDK) using Minishift](https://developers.redhat.com/products/cdk/overview)
 
   - or your own OpenShift installation.
 
@@ -36,12 +35,10 @@ Now log in to JBoss BRMS and start developing containerized rules projects (the 
 
 Notes
 -----
-This project can be installed on any OpenShift platform, such as OpenShift Container Platform. It's possible to install it on any available installation by pointing this installer to an OpenShift IP address:
-```
-  $ ./init.sh IP
-```
 
 If for any reason the installation breaks or you want a new JBoss BRMS installation, just remove the project rhcs-brms-install-demo entry in the OpenShift console and re-run the installation.
+
+-----
 
 To clone a repository in the running container, the following actions would need to occur from a developer's machine.
 
@@ -71,6 +68,8 @@ To clone a repository in the running container, the following actions would need
    $ git clone git://localhost:8001/BackOffice
    ```
 
+-----
+
 
 Supporting Articles
 -------------------
@@ -84,6 +83,8 @@ Supporting Articles
 Released versions
 -----------------
 See the tagged releases for the following versions of the product:
+
+- v1.8 - JBoss BRMS 6.4.0 and JBoss EAP 7.0.0 and available on CDK with Minishift.
 
 - v1.7 - JBoss BRMS 6.4.0 and JBoss EAP 7.0.0 with OpenShift genereated routes and service URLs.
 
