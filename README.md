@@ -73,6 +73,8 @@ To clone a repository in the running container, the following actions would need
 
 Supporting Articles
 -------------------
+- [10 Steps to Cloud Happiness: Step 4 - Centralize Business Logic](http://www.schabell.org/2017/10/10-steps-to-cloud-happiness-step-4.html)
+
 - [Holiday Homework - Red Hat Cloud demo updates](http://www.schabell.org/2016/12/holiday-homework-redhat-cloud-demo-updates.html)
 
 - [App Dev in the Cloud: How To Run JBoss BRMS in a Container](http://www.schabell.org/2016/12/appdev-cloud-howto-run-jboss-brms-in-container.html)
