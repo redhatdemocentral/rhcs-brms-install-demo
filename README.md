@@ -36,6 +36,18 @@ Now log in to JBoss BRMS and start developing containerized rules projects (the 
 Notes
 -----
 
+Should your local network DNS not handle the resolution of the above address, giving you page not found errors, you can apply the
+following to your local hosts file:
+
+```
+$ sudo vi /etc/hosts
+
+# add host for OCP demo resulution
+192.168.99.100   rhcs-brms-install-demo-appdev-in-cloud.192.168.99.100.nip.io 
+```
+
+-----
+
 If for any reason the installation breaks or you want a new JBoss BRMS installation, just remove the project rhcs-brms-install-demo entry in the OpenShift console and re-run the installation.
 
 -----
