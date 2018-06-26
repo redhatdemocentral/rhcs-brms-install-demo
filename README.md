@@ -1,3 +1,6 @@
+Update: June 2018 moved to [Gitlab](https://gitlab.com/redhatdemocentral/rhcs-brms-install-demo).
+
+
 App Dev Cloud with JBoss BRMS Install Demo 
 ==========================================
 This demo is to install JBoss BRMS in the Cloud based on leveraging any Red Hat OpenShift Container Platform (OCP).
